@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Crear Nuevo Profesor</h2>
+    <form>
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" [(ngModel)]="nuevoProf.nombre" name="nombre" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="paterno">Paterno:</label>
+        <input type="text" id="paterno" [(ngModel)]="nuevoProf.paterno" name="paterno" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="materno">Materno:</label>
+        <input type="text" id="materno" [(ngModel)]="nuevoProf.materno" name="materno" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="nacimiento" [(ngModel)]="nuevoProf.nacimiento" name="nacimiento" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="grado">Grado:</label>
+        <select id="grado" [(ngModel)]="gradoSeleccionado" name="grado" class="form-control" multiple>
+          <option value="" disabled selected>Seleccionar grado</option>
+          <option *ngFor="let grado of gradoList" [ngValue]="grado">{{ grado.descripcion }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="curso">Curso:</label>
+        <select id="curso" [(ngModel)]="cursoSeleccionado" name="curso" class="form-control">
+          <option value="" disabled selected>Seleccionar curso</option>
+          <option *ngFor="let curso of cursosList" [ngValue]="curso">{{ curso.descripcion }}</option>
+        </select>
+      </div>
+  
+      <button type="button" class="btn-submit" (click)="guardar()">Guardar</button>
+    </form>
+  </div>

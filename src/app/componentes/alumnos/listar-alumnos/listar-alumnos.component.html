@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Lista de Alumnos</h1>
+  <button class="btn-create" (click)="crearAlumno()">Crear Alumno</button>
+
+  <table class="students-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Nacimiento</th>
+        <th>Grado</th>
+        <th>Salón</th>
+        <th>Curso</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of Alumnos">
+        <td>{{ alumno.id }}</td>
+        <td>{{ alumno.nombre }}</td>
+        <td>{{ alumno.paterno }} {{ alumno.materno }}</td>
+        <td>{{ alumno.nacimiento }}</td>
+        <td>{{ alumno.gradoDTO ? alumno.gradoDTO.descripcion : 'Sin grado' }}</td>
+        <td>{{ alumno.salonDTO.descripcion }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let curso of alumno.cursosDTO">{{ curso.descripcion }}</li>
+          </ul>
+        </td>
+        <td>
+          <button class="btn-edit" (click)="editarAlumnos(alumno)">Editar</button>
+          <button class="btn-delete" (click)="eliminarAlumno(alumno)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<router-outlet></router-outlet>

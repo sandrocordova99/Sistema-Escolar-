@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Lista de Grados</h2>
+  <table class="grades-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let grado of Grado">
+        <td>{{ grado.id }}</td>
+        <td>{{ grado.descripcion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  

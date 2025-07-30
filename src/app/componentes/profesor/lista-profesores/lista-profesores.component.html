@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Lista de Profesores</h1>
+    <button class="btn-create" (click)="crearProfesor()">Crear Profesor</button>
+  
+    <table class="professors-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Nacimiento</th>
+          <th>Grado</th>
+          <th>Curso</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pro of profesores">
+          <td>{{ pro.id }}</td>
+          <td>{{ pro.nombre }}</td>
+          <td>{{ pro.paterno }} {{ pro.materno }}</td>
+          <td>{{ pro.nacimiento }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let grado of pro.gradoDTO">{{ grado.descripcion }}</li>
+            </ul>
+          </td>
+          <td>{{ pro.cursosDTO.descripcion }}</td>
+          <td>
+            <button class="btn-edit" (click)="editarProfesores(pro)">Editar</button>
+            <button class="btn-delete" (click)="eliminarProfesor(pro)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

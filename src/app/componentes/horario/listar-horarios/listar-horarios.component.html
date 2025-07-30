@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Lista de Horarios</h2>
+  <table class="schedule-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let horario of Horario">
+        <td>{{ horario.id }}</td>
+        <td>{{ horario.descripcion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

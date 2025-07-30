@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Crear Nuevo Alumno</h2>
+    <form>
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" [(ngModel)]="nuevoAlumno.nombre" name="nombre" class="form-control" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="paterno">Paterno:</label>
+        <input type="text" id="paterno" [(ngModel)]="nuevoAlumno.paterno" name="paterno" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="materno">Materno:</label>
+        <input type="text" id="materno" [(ngModel)]="nuevoAlumno.materno" name="materno" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="nacimiento" [(ngModel)]="nuevoAlumno.nacimiento" name="nacimiento" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="grado">Grado:</label>
+        <select id="grado" [(ngModel)]="gradoSeleccionado" name="grado" class="form-control">
+          <option value="" disabled selected>Seleccionar grado</option>
+          <option *ngFor="let grado of grados" [ngValue]="grado">{{grado.descripcion}}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="cursos">Cursos:</label>
+        <select id="cursos" [(ngModel)]="cursoSeleccionado" name="curso" class="form-control" multiple>
+          <option *ngFor="let curso of cursos" [ngValue]="curso">{{curso.descripcion}}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="salones">Salón:</label>
+        <select id="salones" [(ngModel)]="salonSeleccionado" name="salones" class="form-control">
+          <option value="" disabled selected>Seleccione un salón</option>
+          <option *ngFor="let salon of salones" [ngValue]="salon">{{salon.descripcion}}</option>
+        </select>
+      </div>
+  
+      <button type="button" class="btn-submit" (click)="guardar()">Guardar</button>
+    </form>
+  </div>

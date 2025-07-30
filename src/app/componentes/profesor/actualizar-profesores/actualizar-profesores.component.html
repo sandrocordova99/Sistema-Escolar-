@@ -1,0 +1,57 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Actualizar Profesor</h3>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="actualizarProfesor()" #formProfesor="ngForm">
+                <div *ngIf="mensaje" class="alert alert-info">{{ mensaje }}</div>
+
+                <div class="form-group">
+                    <label>ID:</label>
+                    <input type="text" [value]="editarProfesor.id" name="id" class="form-control" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input type="text" [(ngModel)]="editarProfesor.nombre" name="nombre" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Apellido Paterno:</label>
+                    <input type="text" [(ngModel)]="editarProfesor.paterno" name="paterno" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Apellido Materno:</label>
+                    <input type="text" [(ngModel)]="editarProfesor.materno" name="materno" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha de Nacimiento:</label>
+                    <input type="date" [(ngModel)]="editarProfesor.nacimiento" name="nacimiento" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Cursos:</label>
+                    <select [(ngModel)]="cursoSeleccionado" name="curso" class="form-control">
+                        <option *ngFor="let curso of cursosList" [ngValue]="curso">{{ curso.descripcion }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Grados:</label>
+                    <div *ngFor="let grado of gradoList; trackBy: trackByGrado">
+                        <input type="checkbox" 
+                               [checked]="isGradoSeleccionado(grado)" 
+                               (change)="seleccionarGrado(grado)">
+                        {{ grado.descripcion }}
+                    </div>
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
